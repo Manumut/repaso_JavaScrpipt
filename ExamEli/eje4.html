@@ -9,5 +9,19 @@
     <!-- Crear un botonnque al hacer clic muestre u oculte una imagen -->
 
 
+    <script>
+        const img = document.createElement("img");
+        const btn = document.createElement("button");
+        let caca = true;
+        btn.textContent = "ocultar/mostrar";
+        img.src = "https://picsum.photos/200/300";
+        // NO FUNCIONA
+        btn.addEventListener("click", () => {
+            img.classList.toggle('hidden');
+        })
+
+        document.body.append(img, btn);
+    </script>
+
 </body>
 </html>

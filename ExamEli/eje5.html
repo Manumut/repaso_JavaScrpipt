@@ -6,8 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Crear una lista con elementos y un boton "Eliminar". Al haacer clic en el boton, el ultimo elemento de la lista debe ser eliminado -->
+    <!-- Crear una lista con elementos y un boton "Eliminar". Al hacer clic en el boton, el ultimo elemento de la lista debe ser eliminado -->
 
+    <script>
+        array = ["manzana", "pera", "sandía", "platano"];
+        const ul = document.createElement("ul");
+        const btn = document.createElement("button");
+        btn.textContent = "eliminar";
+
+        array.forEach(fruta => {
+            const li = document.createElement("li");
+            li.textContent = `${fruta}`;
+            ul.append(li);
+        });
+        document.body.append(ul,btn);
+
+        btn.addEventListener("click", () => {
+            const li = document.querySelectorAll("li")
+            li[li.length-1].remove();
+        })
+    
+    </script>
 
 </body>
 </html>

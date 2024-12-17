@@ -8,6 +8,53 @@
 <body>
     <!-- Crea unalista HTML con botones de "Agregar" y "Eliminar". Al hacer clic en "Agregar", agrega un nuevo elemento a un array y actualiza la lista. Al hacer clic en "Eliminar", elimina el ultimo elemnto del arrau y actualiza la lista -->
 
+    <script>
+        let array = ["hola"];
+        const ul = document.createElement("ul");
+        const añadir = document.createElement("input");
+        const eliminar = document.createElement("input");
+        const text = document.createElement("input");
+        text.type = "text";
+        text.placeholder = "introduce palabra...";
+        añadir.type = "submit";
+        añadir.value = "añadir"
+        eliminar.type = "submit";
+        eliminar.value = "elimnar";
+
+        array.forEach(el => {
+            const li = document.createElement("li");
+            li.textContent=`${el}`;
+            ul.append(li);
+        });
+
+        document.body.append(ul,text,añadir,eliminar);
+
+        añadir.addEventListener("click", () => {
+            let palabra = text.value.trim();
+            if(palabra != null){
+                ul.innerHTML="";
+                array.push(palabra);
+                console.log(array)
+                array.forEach(el => {
+                    const li = document.createElement("li");
+                    li.textContent=`${el}`;
+                    ul.append(li);
+                });
+            }
+        })
+
+        eliminar.addEventListener("click", () => {
+            ul.innerHTML="";
+            array.pop();
+            array.forEach(el => {
+                const li = document.createElement("li");
+                li.textContent=`${el}`;
+                ul.append(li);
+            });
+        })
+        
+
+    </script>
 
 </body>
 </html>

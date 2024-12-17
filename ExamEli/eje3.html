@@ -8,6 +8,30 @@
 <body>
     <!-- Usa el metodo map() para crear un nuevo array con solo los nombre de los usuarios a partir de un array de objetos con nombre y edad -->
 
+    <script>
+        let personas = [
+            {
+                nombre:"Alejandro",
+                edad:12
+            },
+            {
+                nombre:"Manuel",
+                edad:5
+            },
+            {
+                nombre:"kike",
+                edad:16
+            }
+        ]
+
+        const nombre = personas.map(per=>per.nombre);
+        
+
+        console.log(nombre);
+        document.write(nombre);
+
+        
+    </script>
 
 </body>
 </html>

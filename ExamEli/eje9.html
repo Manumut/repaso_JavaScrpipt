@@ -10,6 +10,39 @@
      -Listar todas las categorias diaponibles
      Al hacer click sobre una determinada categoria, de debe mostrar su imagen correpsondiente debado de la lista -->
 
+     <script>
+        const url = "https://www.themealdb.com/api/json/v1/1/categories.php";
+        const ul = document.createElement("ul");
+
+        fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            console.log(datos)
+            datos.categories.forEach(dato => {
+                const li = document.createElement("li");
+                li.textContent = `${dato.strCategory}`;
+                ul.append(li);
+            });
+            document.body.append(ul);
+            // Ahora que los <li> están en el DOM, seleccionarlos y añadir eventos
+            const btns = document.querySelectorAll("li");
+            const img = document.createElement("img");
+            btns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    let palabra = btn.textContent;
+                    datos.categories.forEach(dato => {
+                        if(palabra==dato.strCategory){
+                            img.src = dato.strCategoryThumb;
+                            document.body.append(img);
+                        }
+                    });
+                });
+            });
+        })
+
+        
+
+    </script>
 
 </body>
 </html>
